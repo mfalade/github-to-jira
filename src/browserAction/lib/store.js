@@ -1,6 +1,6 @@
 class Store {
-  _defaultorganizationURL = 'https://atlassian.net';
-  _defaultPrefixes = ['SOME', 'TICKET', 'PREFIX', 'OK'];
+  _defaultorganizationURL = 'https://example.atlassian.net';
+  _defaultPrefixes = ['A', 'BUNCH', 'OF', 'SAMPLE', 'TICKET', 'PREFIXES'];
   _organizationURL = '';
   _ticketPrefixes = [];
   _formState = {

@@ -1,8 +1,8 @@
 const getFirstOfType = (selector) => document.querySelector(selector);
 
 class Controller {
-  _defaultOrganizationURL = 'https://atlassian.net';
-  _defaultPrefixes = ['SOME', 'TICKET', 'PREFIX', 'OK'];
+  _defaultOrganizationURL = 'https://example.atlassian.net';
+  _defaultPrefixes = ['A', 'BUNCH', 'OF', 'SAMPLE', 'TICKET', 'PREFIXES'];
   organizationURL = '';
   ticketPrefixes = [];
 
