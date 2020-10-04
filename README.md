@@ -1,21 +1,14 @@
-# Google Chrome Extension: Jira Ticket Link Generator
+# Github to Jira
 
-Derives and injects the link to the relevant Jira issues for your *pull requests*.
+A simple Chrome extension that allows you to go from a Github pull request to the corresponding Jira ticket in a click
 
-Works best for cases where branch names are derived from ticket ID
+**NOTE: Only Useful for cases where branch names are created using ticket number**
 
-Customizable for other use cases as well 🚀.
+#### How it works
 
-#### Setup
-
-To use the extension,
-
-- Clone or download this repo
-- Provide the relevant values for the contents of the `config/index.js` file.
-You can 
-- Launch your extensions manager [chrome://extensions/](chrome://extensions) in your (Google Chrome) browser
-- Click on `Load unpacked` and select the jira-ticket-util folder (Ensure developer mode is enabled)
-- Load the extension then navigate to any pull request on your orgainzation's repo
-- You should find an additional link to the relevant issue on Jira
+- Given that you have a Jira ticket with number **POC-042**, and your branch name is a derivative of that Jira ticket number. e.g **POC-042**, or **POC-042-implement-proof-of-concept**, **proof-of-concept-POC-042**
+- The extension parses your branch name and checks if it matches any of the prefixes you have configured via the popup
+- If branch name matches any of the target prefixes, it extracts the ticket number and then generates a link to the appropriate Jira ticket
+- Finally, it embeds this link on the pull request page as shown in the image below so you can easily navigate to the relevant Jira ticket
 
 ![Demo Image](https://firebasestorage.googleapis.com/v0/b/mfalade-80807.appspot.com/o/github-jira-linker%2Fimage.png?alt=media&token=df61bf03-a59e-49a3-9651-d0888af15ff6)
