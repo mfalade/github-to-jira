@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      :root {
+        --app-g2j-blue-dark: #0366d6;
+        --app-g2j-blue-light: #eff7ff;
+        --app-g2j-gray-light: #fafbfc;
+        --app-g2j-gray-dark: #e1e4e8;
+        --app-g2j-gray-darker: #aca9b3;
+        --app-g2j-white: #ffffff;
+        --app-g2j-red-dark: #cb2431;
+        --app-g2j-green-dark: #28a745;
+        --app-popup-width: 296px;
+        --app-form-width: calc(296px - 52px);
+      }
+
+      body {
+        width: var(--app-popup-width);
+        overflow-x: scroll;
+        background: var(--app-g2j-white);
+        margin: 0;
+      }
+
+      div.chips-container {
+        margin: 24px 0;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        height: 24px;
+        justify-content: space-between;
+        background: var(--app-g2j-blue-light);
+        padding: 0 8px;
+        font-size: 0.8125rem;
+        line-height: 1;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        margin-right: 8px;
+      }
+
+      .chip__label {
+        margin-right: 8px;
+      }
+
+      .chip__action-icon {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+
+      .padded-section {
+        padding: 16px;
+      }
+
+      .page-title {
+        font-weight: 400;
+        font-size: 1.125rem;
+        background: var(--app-g2j-blue-dark);
+        color: var(--app-g2j-white);
+      }
+
+      svg path {
+        fill: var(--app-g2j-blue-dark);
+        transition: fill 350ms ease-out 150ms;
+      }
+
+      svg:hover path {
+        fill: var(--app-g2j-red-dark);
+        transition: fill 250ms ease-in-out;
+      }
+
+      .input-section {
+        display: flex;
+        align-items: center;
+        margin: 16px 0;
+      }
+
+      form,
+      input {
+        width: var(--app-form-width);
+      }
+
+      input {
+        height: 40px;
+        border: none;
+        padding: 0 8px;
+        outline: none;
+        border: 1px solid var(--app-g2j-gray-dark);
+        border-radius: 4px;
+        background: var(--app-g2j-gray-light);
+        font-size: 0.85rem;
+        transition: all 250ms ease-in-out 150ms;
+        overflow: scroll;
+      }
+
+      input.error {
+        border-color: var(--app-g2j-red-dark);
+        transition: all 250ms ease-in-out;
+      }
+
+      input:active,
+      input:focus,
+      input:hover {
+        outline: none;
+      }
+
+      input:active,
+      input:focus {
+        background: var(--app-g2j-white);
+        border-color: var(--app-g2j-gray-darker);
+        transition: all 250ms ease-in-out;
+      }
+
+      .ticket-prefix-input {
+        text-transform: uppercase;
+      }
+
+      label {
+        display: block;
+        font-size: 11px;
+        margin-bottom: 4px;
+        color: var(--app-g2j-gray-darker);
+      }
+
+      ::placeholder {
+        color: var(--app-g2j-gray-darker);
+      }
+
+      .notification {
+        font-size: 11px;
+        opacity: 0;
+        transition: all 250ms ease-in-out;
+        display: none;
+      }
+
+      .notification--error {
+        color: var(--app-g2j-red-dark);
+      }
+
+      .notification--success {
+        color: var(--app-g2j-green-dark);
+      }
+
+      .notification--error,
+      .notification--success {
+        display: block;
+        opacity: 1;
+        transition: all 150ms ease-in-out;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="page-title padded-section">
+      Github PR to Jira ticket in a click
+    </section>
+    <section class="padded-section">
+      <div class="input-section">
+        <form data-element-selector="organization-url-form">
+          <label>Atlassian URL.</label>
+          <input
+            type="url"
+            placeholder="https://org.atlassian.net"
+            data-element-selector="organization-url-input"
+            maxlength="100"
+          />
+          <p
+            class="notification"
+            data-element-selector="organization-url-notification"
+          ></p>
+        </form>
+      </div>
+      <div class="input-section">
+        <form data-element-selector="ticket-prefix-form">
+          <label>Ticket prefix.</label>
+          <input
+            type="text"
+            class="ticket-prefix-input"
+            placeholder=""
+            data-element-selector="ticket-prefix-input"
+            maxlength="20"
+          />
+          <p
+            class="notification"
+            data-element-selector="ticket-prefix-notification"
+          ></p>
+        </form>
+      </div>
+      <div
+        class="chips-container"
+        data-element-selector="chips-container"
+      ></div>
+    </section>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>

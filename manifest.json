@@ -1,0 +1,29 @@
+{
+  "name": "Github to Jira",
+  "version": "1.0",
+  "description": "Go from a Github pull request to the corresponding Jira ticket in a click",
+  "content_scripts": [{
+    "matches": ["https://github.com/*"],
+    "js": ["src/contentScript/index.js"]
+  }],
+  "browser_action": {
+    "default_title": "Go from a PR to JIRA in a click",
+    "default_popup": "src/browserAction/index.html"
+  },
+  "background": {
+    "scripts": ["src/background/index.js"]
+  },
+  "icons": {
+    "16": "images/logo-16x16.png",
+    "32": "images/logo-32x32.png"
+  },
+  "permissions": [
+    "https://github.com/*",
+    "declarativeContent",
+    "activeTab",
+    "webNavigation",
+    "storage"
+  ],
+  "web_accessible_resources": ["config/index.js"],
+  "manifest_version": 2
+}
