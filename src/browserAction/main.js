@@ -30,7 +30,7 @@ class BrowserAction {
 
   async initializeApp() {
     this.store = new AppStore();
-    await this.store.initialize();
+    await this.store.loadData();
     this.attachFormListeners();
     this.renderTicketPrefixes();
     this.renderorganizationURL();

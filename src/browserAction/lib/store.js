@@ -33,7 +33,7 @@ class Store {
     };
   }
 
-  async initialize() {
+  async loadData() {
     return new Promise((resolve) => {
       chrome.storage.local.get(
         ['organizationURL', 'ticketPrefixes'],
