@@ -18,9 +18,6 @@
     "32": "images/logo-32x32.png"
   },
   "permissions": [
-    "https://github.com/*",
-    "declarativeContent",
-    "activeTab",
     "webNavigation",
     "storage"
   ],
